@@ -2,155 +2,158 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joshua | Bio Link</title>
+<title>Joshua | Luxury Bio</title>
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* ===== Animated Background ===== */
 body {
+  background: radial-gradient(circle at top, #1a1a1a, #000000);
+  color: #fff;
   text-align: center;
   overflow-x: hidden;
-  background: linear-gradient(-45deg, #d9cfc3, #e6dfd7, #cfc6bb, #ddd3c8);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Floating circles */
-.bg-circle {
+/* Subtle gold glow animation */
+body::before {
+  content: "";
   position: fixed;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.4;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212,175,55,0.2), transparent);
+  top: -100px;
+  right: -100px;
+  filter: blur(80px);
+  animation: glowMove 12s ease-in-out infinite alternate;
   z-index: -1;
-  animation: float 18s infinite ease-in-out alternate;
 }
 
-.circle1 {
-  width: 250px;
-  height: 250px;
-  background: white;
-  top: 5%;
-  left: -80px;
-}
-
-.circle2 {
-  width: 300px;
-  height: 300px;
-  background: black;
-  bottom: 10%;
-  right: -120px;
-  animation-delay: 6s;
-}
-
-@keyframes float {
+@keyframes glowMove {
   from { transform: translateY(0px); }
-  to { transform: translateY(50px); }
+  to { transform: translateY(80px); }
 }
 
-/* ===== Card ===== */
+/* Glass Luxury Card */
 .card {
-  background: white;
+  background: rgba(20,20,20,0.85);
+  backdrop-filter: blur(15px);
   width: 90%;
   max-width: 360px;
-  margin: 120px auto 30px;
-  padding: 70px 20px 30px;
+  margin: 120px auto 40px;
+  padding: 80px 25px 35px;
   border-radius: 25px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border: 1px solid rgba(212,175,55,0.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
   position: relative;
   transition: transform 0.2s ease;
 }
 
-/* Profile */
+/* Gold border shimmer */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent, #d4af37, transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px; }
+  100% { background-position: 200px; }
+}
+
+/* Profile Image */
 .profile-img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid white;
+  border: 3px solid #d4af37;
   position: absolute;
   top: -60px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* Typing Text */
+/* Typing */
 .typing {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  color: #d4af37;
   margin-top: 10px;
   min-height: 28px;
 }
 
 /* Clock */
 .clock {
-  font-size: 14px;
-  color: #555;
+  font-size: 13px;
+  color: #aaa;
   margin: 8px 0 15px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
+/* Subtitle */
 .subtitle {
   font-size: 14px;
-  color: #666;
+  color: #ccc;
   margin: 10px 0;
 }
 
 .divider {
-  width: 40px;
+  width: 50px;
   height: 2px;
-  background: #333;
-  margin: 10px auto 15px;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  margin: 15px auto 20px;
 }
 
-/* Buttons */
+/* Luxury Buttons */
 .btn {
   display: block;
-  background: #222;
-  color: white;
+  background: linear-gradient(145deg, #111, #1f1f1f);
+  color: #d4af37;
   text-decoration: none;
   padding: 14px;
-  margin: 10px auto;
+  margin: 12px auto;
   width: 90%;
   border-radius: 30px;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  border: 1px solid rgba(212,175,55,0.3);
   transition: 0.3s;
 }
 
 .btn:hover {
-  background: #444;
+  background: #d4af37;
+  color: #000;
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212,175,55,0.6);
 }
 
-/* Footer */
 .footer {
   margin: 20px 0 40px;
-  font-size: 14px;
-  color: #444;
+  font-size: 13px;
+  color: #777;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg-circle circle1"></div>
-<div class="bg-circle circle2"></div>
-
 <div class="card" id="tiltCard">
   <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe" class="profile-img">
-  
+
   <div class="typing" id="typingText"></div>
   <div class="clock" id="clock"></div>
 
@@ -159,62 +162,42 @@ body {
 
   <a href="#" class="btn">WEBSITE</a>
   <a href="#" class="btn">PORTFOLIO</a>
-  <a href="#" class="btn">NEW POST</a>
-  <a href="#" class="btn">MY STORE</a>
-  <a href="mailto:yourmail@gmail.com" class="btn">CONTACT ME</a>
+  <a href="#" class="btn">PROJECTS</a>
+  <a href="#" class="btn">RESUME</a>
+  <a href="mailto:yourmail@gmail.com" class="btn">CONTACT</a>
 </div>
 
-<div class="footer">@joshuapersonal</div>
+<div class="footer">© Joshua Panimaya Raj</div>
 
 <script>
-/* ===== Typing Animation ===== */
+/* Typing Animation */
 const text = "Joshua Panimaya Raj";
 let index = 0;
 function typeEffect() {
   if (index < text.length) {
     document.getElementById("typingText").innerHTML += text.charAt(index);
     index++;
-    setTimeout(typeEffect, 70);
+    setTimeout(typeEffect, 80);
   }
 }
 typeEffect();
 
-/* ===== Live Clock ===== */
+/* Live Clock */
 function updateClock() {
   const now = new Date();
-  const time = now.toLocaleTimeString();
-  document.getElementById("clock").innerHTML = time;
+  document.getElementById("clock").innerHTML =
+    now.toLocaleTimeString();
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-/* ===== 3D Tilt Effect (Mobile + Desktop) ===== */
+/* 3D Tilt */
 const card = document.getElementById("tiltCard");
 
 card.addEventListener("mousemove", (e) => {
   const rect = card.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
-  
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-  
-  const rotateX = -(y - centerY) / 15;
-  const rotateY = (x - centerX) / 15;
-  
-  card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
-
-card.addEventListener("mouseleave", () => {
-  card.style.transform = "rotateX(0deg) rotateY(0deg)";
-});
-
-/* Touch support */
-card.addEventListener("touchmove", (e) => {
-  const touch = e.touches[0];
-  const rect = card.getBoundingClientRect();
-  const x = touch.clientX - rect.left;
-  const y = touch.clientY - rect.top;
 
   const centerX = rect.width / 2;
   const centerY = rect.height / 2;
@@ -225,7 +208,7 @@ card.addEventListener("touchmove", (e) => {
   card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 });
 
-card.addEventListener("touchend", () => {
+card.addEventListener("mouseleave", () => {
   card.style.transform = "rotateX(0deg) rotateY(0deg)";
 });
 </script>
